@@ -1,0 +1,168 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6" >
+      <div class="container-fluid">
+        <div class="header-body" >
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0"><i><img src="/static/assets/img/icons/shopW.svg"> Google Search Console Keywords  <img src="/static/assets/img/icons/infoW.svg" alt="Infomation icon" width='12' height='12'></i></h6>
+             <!--  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> MCF Conversion </li>
+                </ol>
+              </nav> -->
+            </div>
+            <!-- <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+            </div> -->
+          </div>
+          <!-- Card stats -->
+          <div class="row">
+            <div class="col">
+                <div class="card">
+                  <!-- Card header -->
+                  <div class="card-header border-0">
+                      <!-- Search form -->
+                        <form class="navbar-search navbar-search-light form-inline mr-sm-3" id="navbar-search-main">
+                            <div class="form-group mb-0">
+                            <div class="input-group input-group-alternative input-group-merge" style="background-color: #B6A012;">
+                                <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                </div>
+                                <input class="form-control" placeholder="Search" type="text" >
+                            </div>
+                            </div>
+                            <button type="button" class="close" data-action="search-close" data-target="#navbar-search-main" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                            </button>
+                        </form>
+                  </div>
+                  <!-- Google Search Console Keywords table data displayed by API -->
+                  <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
+                        <tr>
+                            <th scope="col" class="sort" data-sort="name">RANK</th>
+                            <th scope="col" class="sort" data-sort="budget">QUERY</th>
+                            <th scope="col" class="sort" data-sort="status">CLICKS</th>
+                            <th scope="col">IMPRESSION</th>
+                            <th scope="col" class="sort" data-sort="completion">CTR</th>
+                            <th scope="col">POSITION</tr>
+                        </tr>
+                      </thead>
+                      <tbody class="list">
+                        <tr>
+                          <th scope="row">
+                            <div class="media align-items-center">
+                              <div class="rank">
+                                <span class="name mb-0 text-sm">1</span>
+                              </div>
+                            </div>
+                          </th>
+                          <td class="query">
+                            stationery
+                          </td>
+                          <td class="clicks">
+                            <span class="status">35</span>
+                          </td>
+                          <td class="impression">
+                            1226
+                          </td>
+                          <td class="ctr">
+                           2.85%
+                          </td>
+                          <td class="position">
+                              1                           
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <th scope="row">
+                            <div class="media align-items-center">
+                              <div class="rank">
+                                <span class="name mb-0 text-sm">2</span>
+                              </div>
+                            </div>
+                          </th>
+                          <td class="query">
+                            TurboAnchor
+                          </td>
+                          <td class="clicks">
+                            <span class="status">35</span>
+                          </td>
+                          <td class="impression">
+                            <strong>{{ zip }}</strong>
+                          </td>
+                          <td class="ctr">
+                            <strong>{{ country }}</strong>
+                          </td>
+                          <td class="position">
+                              1                           
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <!-- Card footer -->
+                  <div class="card-footer py-4">
+                    <nav aria-label="...">
+                      <ul class="pagination justify-content-end mb-0">
+                        <li class="page-item disabled">
+                          <a class="page-link" href="#" tabindex="-1">
+                            <i class="fas fa-angle-left"></i>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                        </li>
+                        <li class="page-item active">
+                          <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                          <a class="page-link" href="#">
+                            <i class="fas fa-angle-right"></i>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+            </div>
+            </div>
+        </div><!-- class = row end -->
+        </div>
+      </div>
+    </div>
+
+
+      </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

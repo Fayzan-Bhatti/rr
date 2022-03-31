@@ -1,0 +1,59 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6" >
+      <div class="container-fluid">
+        <div class="header-body" >
+          <div class="row align-items-center py-4">
+            <div class="col-lg-8 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0"><i><img src="/static/assets/img/icons/shopW.svg">  Facebook ROAS <img src="/static/assets/img/icons/infoW.svg" alt="Infomation icon" width='12' height='12'></i></h6>
+              
+
+              &nbsp;&nbsp;<span style="color: white;"><b> Warning!</b> Please attach your Facebook Analytics account. <a href="">Click Here.</a></span>
+
+             <!--  <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
+                  <li class="breadcrumb-item active" aria-current="page"> MCF Conversion </li>
+                </ol>
+              </nav> -->
+            </div>
+            <!-- <div class="col-lg-6 col-5 text-right">
+              <a href="#" class="btn btn-sm btn-neutral">New</a>
+              <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+            </div> -->
+          </div>
+          <!-- Card stats -->
+         
+            </div>
+            </div>
+            </div>
+            </div>
+        </div><!-- class = row end -->
+        </div>
+      </div>
+    </div>
+
+
+      </div>
+
+      {% include "includes/footer.html" %}
+
+    </div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

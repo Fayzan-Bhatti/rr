@@ -1,0 +1,161 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6" >
+      <div class="container-fluid">
+        <div class="header-body" >
+          <div class="row align-items-center py-4">
+            <div class="col-lg-8 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0"><i><img src="/static/assets/img/icons/shopW.svg">  Top Active Pages <img src="/static/assets/img/icons/infoW.svg" alt="Infomation icon" width='12' height='12'></i></h6>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+          <!-- Card stats -->
+              <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-5">
+                <div class="card">
+                  <div class="card-header border-0">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h3 class="mb-0">Top Active Pages <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-responsive">
+                    <!-- Projects table -->
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col">ACTIVE PAGE</th>
+                          <th scope="col">ACTIVE USERS</th>
+                          <th scope="col">%NEW SESSIONS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                           <!--data-->
+                          </th>
+                          <td>
+                            <!--data-->
+                          </td>
+                          <td>
+                            <!--data-->
+                        </tr>
+                        <tr>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          <div class="col-xl-7">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0">Custom Chart <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></h3>
+                  </div>
+                </div>
+              </div>               
+               
+              <div class="card-body">
+                <form class="form-inline text-right" method="post" id="custom_form">
+                    <label class="sr-only" for="inlineFormInputName2">Metrics</label>
+                    <select name="metrics" class="form-control mb-2 mr-sm-2 metrics">
+                        <option value="">Metrics</option>
+                        <option>PageViews</option>
+                        <option> New Users</option>
+                        <option> Sessions</option>
+                        <option> Hits</option>
+                    </select>
+                    <label class="sr-only" for="inlineFormInputName2">Dimension</label>
+                    <select name="dimension" class="form-control mb-2 mr-sm-2 dimension">
+                        <option value="">Dimension</option>
+                        <option> User Type</option>
+                        <option> Medium</option>
+                        <option> Source</option>
+                        <option> Keywords</option>
+                        <option> Social Network</option>
+                        <option> Browsers</option>
+                        <option> Operating System</option>
+                        <option> Device Category</option>
+                        <option> Language</option>
+                        <option> Screen Resulations</option> 
+                    </select>
+                    <label class="sr-only" for="inlineFormInputName2">Duration</label>
+                    <input type="text" name="dates" class="form-control mb-2 mr-sm-2 duration" />
+                    <button type="button" class="btn btn-primary mb-2">Refresh</button>
+                </form>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.0.0-alpha/Chart.min.js"></script>
+
+                <canvas id="myChart"></canvas>
+                <script>
+                var ctx = document.getElementById('myChart').getContext('2d');
+                var myChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ["organic", "cpc", "referrak", "none", "not_set","page_post"],
+                        datasets: [{
+                            label: 'Medium',
+                            data: [12, 19, 3, 5, 2, 3],
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+                </script>
+
+                
+
+
+              </div>
+              </div>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+    
+      
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

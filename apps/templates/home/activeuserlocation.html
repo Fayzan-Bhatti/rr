@@ -1,0 +1,131 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6" >
+      <div class="container-fluid">
+        <div class="header-body" >
+          <div class="row align-items-center py-4">
+            <div class="col-lg-8 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0"><i><img src="/static/assets/img/icons/shopW.svg">  Active User/Location <img src="/static/assets/img/icons/infoW.svg" alt="Infomation icon" width='12' height='12'></i></h6>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+          <!-- Card stats -->
+              <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card">
+                  <div class="card-header border-0">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h3 class="mb-0">New Users by Location <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></h3>
+                      </div>
+                    </div>
+                  </div>               
+                   
+                 <!--location chart-->
+                 <script src="https://www.amcharts.com/lib/4/core.js"></script>
+                <script src="https://www.amcharts.com/lib/4/maps.js"></script>
+                <script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+                <div id="chartdiv"></div>
+
+                <script>    
+                                // Create map instance
+                var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+                // Set map definition
+                chart.geodata = am4geodata_worldLow;
+
+                // Set projection
+                chart.projection = new am4maps.projections.Miller();
+
+                // Create map polygon series
+                var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+                // Make map load polygon (like country names) data from GeoJSON
+                polygonSeries.useGeodata = true;
+
+                // Configure series
+                var polygonTemplate = polygonSeries.mapPolygons.template;
+                polygonTemplate.tooltipText = "{name}";
+                polygonTemplate.fill = am4core.color("#CCCCCC");
+
+                // Remove Antarctica
+                polygonSeries.exclude = ["AQ"];
+
+                // Add some data
+                polygonSeries.data = [{
+                "id": "US",
+                "name": "United States",
+                "value": 100
+                }, {
+                "id": "FR",
+                "name": "France",
+                "value": 50
+                }];
+
+                </script>
+                 <!--end location chart-->
+                  </div>
+                </div>
+            <div class="col-xl-6">
+                <div class="card">
+                  <div class="card-header border-0">
+                    <div class="row align-items-center">
+                      <div class="col">
+                        <h3 class="mb-0" >Live Active Users  <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></h3>
+                        </div>
+         `   </div>
+                  </div>
+                  <div class="table-responsive">
+                    <!-- Projects table -->
+                    <table class="table align-items-center table-flush">
+                      <thead class="thead-light">
+                        <tr>
+                          <th scope="col">ACTIVE PAGE</th>
+                          <th scope="col">ACTIVE USERS</th>
+                          <th scope="col">%NEW SESSIONS</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">
+                           <!--data-->
+                          </th>
+                          <td>
+                          <!--data-->     
+                        </td>
+                          <td>
+                            <!--data-->
+                        </tr>
+                        <tr>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+          </div>
+         
+        </div>
+    
+    
+      
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

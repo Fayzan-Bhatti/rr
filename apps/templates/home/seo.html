@@ -1,0 +1,87 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <!-- Header -->
+    <div class="header bg-primary pb-6" >
+      <div class="container-fluid">
+        <div class="header-body" >
+          <div class="row align-items-center py-4">
+            <div class="col-lg-8 col-7">
+              <h6 class="h2 text-white d-inline-block mb-0"><i><img src="/static/assets/img/icons/shopW.svg">  SEO <img src="/static/assets/img/icons/infoW.svg" alt="Infomation icon" width='12' height='12'></i></h6>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+          <!-- Card stats -->
+              <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="row">
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0">Backlink Profile <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></h3>
+                  </div>
+                </div>
+              </div> 
+              <center> <span><b> <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></i> Warning!</b> Please attach your Facebook Analytics account.<a href="">Click Here.</a> </span>
+              </center>
+            </div>
+          </div>
+          <div class="col-xl-6">
+            <div class="card">
+              <div class="card-header border-0">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0">Google SERPs <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='12' height='12'></h3>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <!-- Projects table -->
+                <table class="table align-items-center table-flush">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col">KEYWORDS</th>
+                      <th scope="col">DESKTOP RANK</th>
+                      <th scope="col">MOBILE RANK</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">
+                        Facebook
+                      </th>
+                      <td>
+                        1,480
+                      </td>
+                      <td>
+                        1
+                    </tr>
+                    <tr>
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      
+{% endblock content %}
+
+<!-- Specific JS goes HERE --> 
+{% block javascripts %}
+
+  <script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+  <script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}

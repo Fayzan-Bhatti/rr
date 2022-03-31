@@ -1,0 +1,5 @@
+re_key = 6LdLJaweAAAAADI12DUvP_MUHiR3gK1P_iVC5QGA
+re_security_key = 6LdLJaweAAAAAHiNVnWj4sDVeIu0-Jk5TO8w6Ozu
+
+
+google = AIzaSyBNtZWrYOk1X7SXAHWD7hlKHaiTFykZ3nE

@@ -1,0 +1,370 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+
+<!-- Header -->
+<div class="header bg-primary pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-4 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0"><i><img src="/static/assets/img/icons/shopW.svg">  eCommerce
+              Analytics <img src="/static/assets/img/icons/infoW.svg" alt="Infomation icon" width='12' height='12'></i>
+          </h6>
+        </div>
+        <!-- 
+               Tabs section
+             -->
+
+        <div class="col-lg-4 col-7">
+          <div class="d-none d-md-block">
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"> Yesterday</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"> Today</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"> 7 days</button>
+            <button class="btn btn-sm pd-x-15 btn-white btn-uppercase"> 30 days</button><br><br>
+          </div>
+        </div>
+
+        <!-- 
+               date section
+             -->
+        <div class="col-lg-4 col-7">
+          <h6 class="h5 text-white d-inline-block mb-0" style="float: right;"> 13 Jan - 19 Jan 2022 compared to 20 Jan -
+            26 Jan 2022 </h6>
+        </div>
+      </div>
+      <!-- Card stats -->
+      <div class="row">
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">REVENUE <img src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='9' height='9'> </h5>
+                  <br><br>
+                  <center><span class="card-title text-uppercase text-muted mb-0">A.I Forecast for this week</span>
+                  </center>
+                  <!-- chart -->
+                  <div id="chart">
+                  </div>
+
+                  <!-- end chart -->
+                </div>
+              </div> <br><br>
+              <!-- adding the last week and current values  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px " class="card-title text-uppercase text-muted mb-0">Last week</h5>
+                </div>
+                <div class="col-sm-6">
+
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{revenue1.total|floatformat:2}}</span>
+
+
+                </div>
+
+
+
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px" class="card-title text-uppercase text-muted mb-0">Current</h5>
+                </div>
+                <div class="col-sm-6">
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{revenue.total|floatformat:2}}</span>
+                </div>
+              </div>
+              <!--  End adding the last week and current values  -->
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{diff|floatformat:2}}%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div><!-- end REVENUE -->
+
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">CONVERSION RATE <img
+                      src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='9' height='9'> </h5>
+                  <br><br>
+                  <center><span class="card-title text-uppercase text-muted mb-0">A.I Forecast for this week</span>
+                  </center>
+                  <!-- chart -->
+                  <br>
+
+                  <!-- end chart -->
+
+
+                </div>
+              </div> <br><br>
+              <!-- adding the last week and current values  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px " class="card-title text-uppercase text-muted mb-0">Last week</h5>
+                </div>
+                <div class="col-sm-6">
+
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{conversions1.total|floatformat:2}}</span>
+
+
+                </div>
+
+
+
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px" class="card-title text-uppercase text-muted mb-0">Current</h5>
+                </div>
+                <div class="col-sm-6">
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{conversions.total|floatformat:2}}</span>
+                </div>
+              </div>
+              <!--  End adding the last week and current values  -->
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i>  {{diffc|floatformat:2}}%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div><!-- end CONVERSION RATE -->
+
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">TRANSACTIONS <img
+                      src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='9' height='9'> </h5>
+                  <br><br>
+                  <center><span class="card-title text-uppercase text-muted mb-0">A.I Forecast for this week</span>
+                  </center>
+                  <!-- chart -->
+                  <br>
+
+                  <!-- end chart -->
+
+
+                </div>
+              </div> <br><br>
+              <!-- adding the last week and current values  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px " class="card-title text-uppercase text-muted mb-0">Last week</h5>
+                </div>
+                <div class="col-sm-6">
+
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{transactions1.total}}</span>
+
+
+                </div>
+
+
+
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px" class="card-title text-uppercase text-muted mb-0">Current</h5>
+                </div>
+                <div class="col-sm-6">
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{transactions.total}}</span>
+                </div>
+              </div>
+              <!--  End adding the last week and current values  -->
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{difft|floatformat:2}}%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div><!-- end TRANSACTIONS -->
+
+
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">AVG. ORDER VALUE <img
+                      src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='9' height='9'> </h5>
+                  <br><br>
+                  <center><span class="card-title text-uppercase text-muted mb-0">A.I Forecast for this week</span>
+                  </center>
+                  <!-- chart -->
+                  <br>
+
+                  <!-- end chart -->
+
+
+                </div>
+              </div> <br><br>
+              <!-- adding the last week and current values  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px " class="card-title text-uppercase text-muted mb-0">Last week</h5>
+                </div>
+                <div class="col-sm-6">
+
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{avg1.total|floatformat:2}}</span>
+
+
+                </div>
+
+
+
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px" class="card-title text-uppercase text-muted mb-0">Current</h5>
+                </div>
+                <div class="col-sm-6">
+                  <span style="float: right;" class="h4 font-weight-bold">Rs.{{avg.total|floatformat:2}}</span>
+                </div>
+              </div>
+              <!--  End adding the last week and current values  -->
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> {{diffa|floatformat:2}}%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div><!-- end AVG. ORDER VALUE -->
+
+
+        <div class="col-xl-3 col-md-6">
+          <div class="card card-stats">
+            <!-- Card body -->
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <h5 class="card-title text-uppercase text-muted mb-0">ROI VALUE <img
+                      src="/static/assets/img/icons/infoB.svg" alt="Infomation icon" width='9' height='9'> </h5>
+                  <br><br>
+                  <center><span class="card-title text-uppercase text-muted mb-0">A.I Forecast for this week</span>
+                  </center>
+                  <!-- chart -->
+                  <br>
+
+                  <!-- end chart -->
+
+
+                </div>
+              </div> <br><br>
+              <!-- adding the last week and current values  -->
+              <div class="row">
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px " class="card-title text-uppercase text-muted mb-0">Last week</h5>
+                </div>
+                <div class="col-sm-6">
+
+                  <span style="float: right;" class="h4 font-weight-bold">Rs. 1,000</span>
+
+
+                </div>
+
+
+
+                <div class="col-sm-6">
+                  <h5 style="margin-top:3px" class="card-title text-uppercase text-muted mb-0">Current</h5>
+                </div>
+                <div class="col-sm-6">
+                  <span style="float: right;" class="h4 font-weight-bold">Rs. 2,000</span>
+                </div>
+              </div>
+              <!--  End adding the last week and current values  -->
+              <p class="mt-3 mb-0 text-sm">
+                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                <span class="text-nowrap">Since last month</span>
+              </p>
+            </div>
+          </div>
+        </div><!-- end ROI VALUE -->
+
+      </div><!-- class = row end -->
+    </div>
+  </div>
+
+<script type="text/javascript">
+  
+
+  var options = {
+  chart: {
+    height: 280,
+    type: "area",
+    toolbar:{
+        tools:
+        {
+          download:false,
+          selection: false,
+        }
+    },
+    zoom: {
+          enabled: false,          
+         }
+    },
+    markers: {
+    size: 2,
+    colors: '#efdc58',
+    strokeColors: '#B6A012',
+    shape: "circle",
+    },
+    grid:
+    {
+      show: false,
+    },
+  dataLabels: {
+    enabled: false,
+  },
+  series: [
+    {
+      data: [45, 52, 38, 45, 19, 23, 2]
+    }
+  ],
+  fill: {
+   colors: ['#B6A012'],
+
+  },
+  stroke: {
+    colors: '#B6A012',
+    width: 2,
+    dashArray: 0,      
+},
+  xaxis: {
+    categories: [
+      "01 Jan",
+      "02 Jan",
+      "03 Jan",
+      "04 Jan",
+      "05 Jan",
+      "06 Jan",
+      "07 Jan"
+    ]
+  }
+};
+
+var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+chart.render();
+
+</script>
+
+</div>
+{% include "includes/footer.html" %}
+
+</div>
+
+{% endblock content %}
+
+<!-- Specific JS goes HERE -->
+{% block javascripts %}
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="/static/assets/vendor/chart.js/dist/Chart.min.js"></script>
+<script src="/static/assets/vendor/chart.js/dist/Chart.extension.js"></script>
+
+{% endblock javascripts %}
